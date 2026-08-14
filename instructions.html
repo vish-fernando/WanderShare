@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Use · WanderShare</title>
+    <meta name="description"
+        content="Learn how to use WanderShare - sign in, share trips, save places, follow explorers, use the world map, message box and more." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+    <meta name="theme-color" content="#080C18" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <script src="theme.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.png" alt="WanderShare Logo" class="logo-img" />
+            <span>WanderShare</span>
+        </a>
+        <ul class="nav-links" role="list">
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li><a href="inspire.html" id="nav-inspire">Inspire Me</a></li>
+            <li><a href="explore.html" id="nav-explore">Explore</a></li>
+            <li><a href="countries.html" id="nav-countries">Countries</a></li>
+            <li><a href="community.html" id="nav-community">Community</a></li>
+            <li><a href="profile.html" id="nav-profile">Profile</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme"
+                title="Switch theme">🌙</button>
+            <div class="nav-auth-area" id="nav-auth-area"></div>
+        </div>
+    </nav>
+
+    <div class="page-hero" role="banner">
+        <div class="page-hero-bg"
+            style="background-image: url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=1400&q=80');"
+            aria-hidden="true"></div>
+        <div class="page-hero-overlay" aria-hidden="true"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-eyebrow">📘 Help Center</div>
+            <h1 class="page-hero-title">How to <em>Use</em> WanderShare</h1>
+            <p class="page-hero-subtitle">Everything you need to know - sign in, share trips, save places, follow
+                explorers, use the map and more.</p>
+        </div>
+    </div>
+
+    <section class="privacy-section">
+        <div class="container privacy-container">
+
+            <div class="privacy-toc-card">
+                <h2 class="privacy-toc-title">📋 Quick Guide</h2>
+                <nav class="privacy-toc-nav" aria-label="Instructions sections">
+                    <a href="#getting-started" class="privacy-toc-link"><span class="toc-num">01</span>Getting
+                        Started</a>
+                    <a href="#sign-in" class="privacy-toc-link"><span class="toc-num">02</span>Sign In With Google</a>
+                    <a href="#share-trip" class="privacy-toc-link"><span class="toc-num">03</span>Share a Trip</a>
+                    <a href="#photos" class="privacy-toc-link"><span class="toc-num">04</span>Photos & Rules</a>
+                    <a href="#explore" class="privacy-toc-link"><span class="toc-num">05</span>Explore & World Map</a>
+                    <a href="#interact" class="privacy-toc-link"><span class="toc-num">06</span>Like, Follow, Save &
+                        Share</a>
+                    <a href="#rate-comment" class="privacy-toc-link"><span class="toc-num">07</span>Rate & Comment</a>
+                    <a href="#profile" class="privacy-toc-link"><span class="toc-num">08</span>Your Profile</a>
+                    <a href="#messages" class="privacy-toc-link"><span class="toc-num">09</span>Message Box</a>
+                    <a href="#chat" class="privacy-toc-link"><span class="toc-num">10</span>Chat Assistant</a>
+                    <a href="#report" class="privacy-toc-link"><span class="toc-num">11</span>Report & Safety</a>
+                    <a href="#manage" class="privacy-toc-link"><span class="toc-num">12</span>Account & Privacy</a>
+                </nav>
+            </div>
+
+            <div class="privacy-card" id="getting-started">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">🚀</span>
+                    <div>
+                        <span class="privacy-card-num">Step 01</span>
+                        <h2 class="privacy-card-title">Getting Started</h2>
+                    </div>
+                </div>
+                <p class="privacy-card-text">
+                    WanderShare is a family-friendly travel community where real explorers share real stories, photos
+                    and
+                    adventures from every corner of the globe. Here is the quick tour of the pages:
+                </p>
+                <ul class="privacy-list">
+                    <li><strong>🏠 Home</strong> - the welcome page with the latest adventures and top members.</li>
+                    <li><strong>✨ Inspire Me</strong> - get random destination ideas and explore travel vibes.</li>
+                    <li><strong>🌍 Explore</strong> - the community feed with the Live Global Travel Map.</li>
+                    <li><strong>🗺️ Countries</strong> - browse countries and see how many community stories each has.
+                    </li>
+                    <li><strong>✈️ Community</strong> - share your own trip with photos and a story.</li>
+                    <li><strong>👤 Profile</strong> - your account, saved places, posts and settings.</li>
+                </ul>
+                <div class="privacy-note-box">
+                    <span class="note-icon">💡</span>
+                    <p>Everything is saved to the cloud (Firebase), so your posts are visible to everyone on every
+                        device.
+                        You can also browse as a guest without an account.</p>
+                </div>
+            </div>
+
+            <div class="privacy-card" id="sign-in">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">🔑</span>
+                    <div>
+                        <span class="privacy-card-num">Step 02</span>
+                        <h2 class="privacy-card-title">Sign In With Google</h2>
+                    </div>
+                </div>
+                <p class="privacy-card-text">To post, like, follow, save or comment you need a real Google account.
+                    Here's
+                    how:</p>
+                <ul class="privacy-list">
+                    <li>Click <strong>Profile</strong> in the menu (or "Login / Sign Up").</li>
+                    <li>Click <strong>"Continue with Google"</strong> (or "Sign Up with Google" if you're new).</li>
+                    <li>Choose your Google account and accept - done! No password needed.</li>
+                </ul>
+                <div class="privacy-note-box">
+                    <span class="note-icon">👻</span>
+                    <p>Don't want an account? Click <strong>"Browse as Guest"</strong> to look around. Guests can view
+                        everything but cannot post, like or follow.</p>
+                </div>
+            </div>
+
+            <div class="privacy-card" id="share-trip">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">✈️</span>
+                    <div>
+                        <span class="privacy-card-num">Step 03</span>
+                        <h2 class="privacy-card-title">Share a Trip</h2>
+                    </div>
+                </div>
+                <p class="privacy-card-text">Posting your adventure is easy. You must be signed in with a real account:
+                </p>
+                <ul class="privacy-list">
+                    <li>Go to <strong>Community → Share a Trip</strong> (or Profile → Share a Trip).</li>
+                    <li>Fill in the <strong>title, destination, country and region</strong>.</li>
+                    <li>Add up to <strong>6 photos</strong> (JPG, PNG or WebP).</li>
+                    <li>Write a <strong>short description</strong> and your <strong>full story</strong> (max 2,000
+                        characters).</li>
+                    <li>Pick some <strong>tags</strong> like Beach, Mountains or Food.</li>
+                    <li>Choose visibility: 🌍 Public (everyone), 👥 Followers, or 🔒 Only Me.</li>
+                    <li>Tick the guidelines box and click <strong>"Publish My Trip"</strong>.</li>
+                </ul>
+                <div class="privacy-note-box">
+                    <span class="note-icon">🌍</span>
+                    <p>Public posts are shared instantly with everyone and appear as a ✈️ pin on the Live Global Travel
+                        Map.</p>
+                </div>
+            </div>
+
+            <div class="privacy-card" id="photos">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">📸</span>
+                    <div>
+                        <span class="privacy-card-num">Step 04</span>
+                        <h2 class="privacy-card-title">Photos & Content Rules</h2>
+                    </div>
+                </div>
+                <ul class="privacy-list">
+                    <li>Up to <strong>6 photos</strong> per post, each under 5MB. Videos are not supported.</li>
+                    <li>Photos are automatically compressed to keep the site fast.</li>
+                    <li><strong>English only</strong> - posts in other languages are automatically blocked.</li>
+                    <li><strong>No duplicates</strong> - posting the same story, title or photos is blocked.</li>
+                    <li><strong>No offensive or explicit content</strong> - bad words and adult links are blocked.</li>
+                    <li>Photos must be <strong>yours or shared with permission</strong>.</li>
+                    <li>Right-click saving is disabled - only the photo's owner can download their own pictures.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-card" id="explore">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">🌍</span>
+                    <div>
+                        <span class="privacy-card-num">Step 05</span>
+                        <h2 class="privacy-card-title">Explore & the World Map</h2>
+                    </div>
+                </div>
+                <p class="privacy-card-text">The Explore page is the heart of the community:</p>
+                <ul class="privacy-list">
+                    <li><strong>🗺️ Live Global Travel Map</strong> - every public post appears as a ✈️ pin. Click a pin
+                        to
+                        see the photo and read the story.</li>
+                    <li><strong>Filter tabs</strong> - All, Following, Europe, Asia, Americas, Africa, Oceania and Top
+                        Rated.</li>
+                    <li><strong>🔍 Search</strong> - type a destination to find trips.</li>
+                    <li><strong>Vibe filter</strong> - from the Inspire page you can jump straight to a travel style.
+                    </li>
+                </ul>
+                <div class="privacy-note-box">
+                    <span class="note-icon">🗺️</span>
+                    <p>The map updates live - when someone posts, a new pin appears automatically on every open device.
+                    </p>
+                </div>
+            </div>
+
+            <div class="privacy-card" id="interact">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">❤️</span>
+                    <div>
+                        <span class="privacy-card-num">Step 06</span>
+                        <h2 class="privacy-card-title">Like, Follow, Save & Share</h2>
+                    </div>
+                </div>
+                <p class="privacy-card-text">Every post has an action bar at the bottom:</p>
+                <ul class="privacy-list">
+                    <li><strong>🤍 Like</strong> - tap the heart to like a post. The count is saved in the cloud, so it
+                        stays forever and shows for everyone.</li>
+                    <li><strong>📍 Save</strong> - save a place to your profile's personal world map for later.</li>
+                    <li><strong>🔗 Share</strong> - share the post with friends (or copy the link).</li>
+                    <li><strong>➕ Follow</strong> - follow an explorer to see their trips in the "Following" filter.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="privacy-card" id="rate-comment">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">⭐</span>
+                    <div>
+                        <span class="privacy-card-num">Step 07</span>
+                        <h2 class="privacy-card-title">Rate & Comment</h2>
+                    </div>
+                </div>
+                <ul class="privacy-list">
+                    <li><strong>⭐ Rate</strong> - open any post and tap 1-5 stars. You can rate once per place, and your
+                        vote is locked after you submit.</li>
+                    <li><strong>💬 Comment</strong> - write one comment per place. Must be signed in, English, and no
+                        offensive words.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-card" id="profile">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">👤</span>
+                    <div>
+                        <span class="privacy-card-num">Step 08</span>
+                        <h2 class="privacy-card-title">Your Profile</h2>
+                    </div>
+                </div>
+                <ul class="privacy-list">
+                    <li><strong>✏️ Edit Name</strong> - change your display name anytime; it saves forever and updates
+                        on
+                        all your posts.</li>
+                    <li><strong>🗺️ Saved Map</strong> - your saved places and posted trips on a 2D map or 3D globe.
+                    </li>
+                    <li><strong>📸 My Posts</strong> - see, download or delete your own posts (only you can delete
+                        yours).
+                    </li>
+                    <li><strong>Stats</strong> - see your trips, saved places, countries, following and followers
+                        counts.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-card" id="messages">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">📬</span>
+                    <div>
+                        <span class="privacy-card-num">Step 09</span>
+                        <h2 class="privacy-card-title">Message Box</h2>
+                    </div>
+                </div>
+                <p class="privacy-card-text">Every signed-in user has their own message box:</p>
+                <ul class="privacy-list">
+                    <li>Open the <strong>💬 chat assistant</strong> (bottom-right corner).</li>
+                    <li>Click <strong>"📬 Messages"</strong> at the bottom of the chat panel.</li>
+                    <li>You'll see any messages sent to you - for example, if the admin contacts you about your posts.
+                    </li>
+                </ul>
+                <div class="privacy-note-box">
+                    <span class="note-icon">🛡️</span>
+                    <p>If the admin deletes your post or bans your account, they must write a reason - and that reason
+                        is
+                        delivered straight to your message box so you always know why.</p>
+                </div>
+            </div>
+
+            <div class="privacy-card" id="chat">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">💬</span>
+                    <div>
+                        <span class="privacy-card-num">Step 10</span>
+                        <h2 class="privacy-card-title">Chat Assistant</h2>
+                    </div>
+                </div>
+                <p class="privacy-card-text">The little 💬 button in the bottom-right corner is the WanderShare
+                    assistant.
+                    Ask it things like:</p>
+                <ul class="privacy-list">
+                    <li>"Find me a location" - get a random destination idea.</li>
+                    <li>"How do I create an account?" - learn about signing in.</li>
+                    <li>"Best places on a budget" - budget travel tips.</li>
+                    <li>"What should I pack?" - packing suggestions.</li>
+                    <li>"What is WanderShare?" - a quick intro to the site.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-card" id="report">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">🚩</span>
+                    <div>
+                        <span class="privacy-card-num">Step 11</span>
+                        <h2 class="privacy-card-title">Report & Safety</h2>
+                    </div>
+                </div>
+                <ul class="privacy-list">
+                    <li>Open any post and click <strong>"🚩 Report Inappropriate Content"</strong>.</li>
+                    <li>Your report goes straight to the <strong>admin</strong> - the post stays visible until the admin
+                        decides.</li>
+                    <li>The admin reviews reports and can <strong>remove the post or keep it</strong>.</li>
+                    <li>Never share personal information like phone numbers or addresses in your posts.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-card" id="manage">
+                <div class="privacy-card-header">
+                    <span class="privacy-card-icon">⚙️</span>
+                    <div>
+                        <span class="privacy-card-num">Step 12</span>
+                        <h2 class="privacy-card-title">Account & Privacy</h2>
+                    </div>
+                </div>
+                <ul class="privacy-list">
+                    <li><strong>Sign Out</strong> - from the profile Settings card or the user menu in the top-right.
+                    </li>
+                    <li><strong>Delete Account</strong> - removes everything and blocks that email from creating a new
+                        account.</li>
+                    <li>Your public posts are stored in Firebase and shared with everyone. Private "Only Me" posts stay
+                        in
+                        your browser.</li>
+                    <li>For full details read the <a href="privacy.html">Privacy Policy</a> and <a
+                            href="terms.html">Terms of Service</a>.</li>
+                </ul>
+                <div class="privacy-note-box">
+                    <span class="note-icon">📬</span>
+                    <p>Need help? Contact us at <strong>hashenf99@gmail.com</strong> or use the report button on any
+                        post.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="nav-logo"><img src="logo.png" alt="WanderShare Logo"
+                            class="logo-img" /><span>WanderShare</span>
+                    </div>
+                    <p>A safe and friendly travel community where real explorers share real stories.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="inspire.html">Inspire Me</a></li>
+                        <li><a href="explore.html">Explore</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="instructions.html" class="footer-login-link">How to Use</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="profile.html">Login / Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 WanderShare · All rights reserved.<br>Created &amp; owned by <strong>Hashen Fernando</strong>
+                    · Special thanks: <strong>Chanuki Marambage</strong><br>Funder &amp; Investor: <strong>Ivan
+                        Tharindu</strong></p>
+                <div class="footer-socials" aria-label="Social links">
+                    <a href="https://www.instagram.com/v_vish_fdo?igsh=MW1zOTF1NHJoMnFzaw%3D%3D&utm_source=qr"
+                        aria-label="Instagram" title="Follow us on Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.07 1.646.07 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="firebase-config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+    <script src="auth.js"></script>
+    <script src="firestore.js"></script>
+    <script src="groq-config.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

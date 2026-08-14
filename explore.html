@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore · WanderShare</title>
+  <meta name="description"
+    content="Browse real travel stories from around the world. Filter by region, vibe, or search your dream destination on WanderShare." />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <meta name="theme-color" content="#080C18" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="auth.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <script src="theme.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="WanderShare Logo" class="logo-img" />
+      <span>WanderShare</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" id="nav-home">Home</a></li>
+      <li><a href="inspire.html" id="nav-inspire">Inspire Me</a></li>
+      <li><a href="explore.html" id="nav-explore">Explore</a></li>
+      <li><a href="community.html" id="nav-community">Community</a></li>
+      <li><a href="profile.html" id="nav-profile">Profile</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme"
+        title="Switch theme">🌙</button>
+      <div class="nav-auth-area" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <div class="page-hero" role="banner">
+    <div class="page-hero-bg"
+      style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1400&q=80');"
+      aria-hidden="true"></div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">🌐 Community</div>
+      <h1 class="page-hero-title">Real Trips. Real <em>Stories.</em></h1>
+      <p class="page-hero-subtitle">Browse adventures shared by travellers just like you from every corner of the globe.
+      </p>
+    </div>
+  </div>
+
+  <section class="explore-map-section fade-in" style="padding:2.5rem 0 1rem;">
+    <div class="container">
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+        <div>
+          <h2 style="font-size:1.6rem; font-weight:800; color:var(--text-primary);">🗺️ Live <em>Global Travel Map</em>
+          </h2>
+          <p style="font-size:0.9rem; color:var(--text-muted);">Interactive map showing all trips uploaded by real
+            travellers across the world. Click any pin to read their story!</p>
+        </div>
+        <div
+          style="font-size:0.85rem; font-weight:700; color:var(--teal); background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.25); padding:0.4rem 1rem; border-radius:50px;"
+          id="explore-map-pin-count">
+          📍 Loading map pins…
+        </div>
+      </div>
+      <div id="explore-world-map"
+        style="height: 480px; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--glass-border); overflow: hidden; background: var(--navy-mid); box-shadow: var(--shadow-card);">
+      </div>
+    </div>
+  </section>
+
+  <section class="explore-page" id="feed" aria-label="Travel community posts">
+    <div class="container">
+
+      <div class="feed-controls fade-in" style="padding-top:2rem;">
+        <div class="filter-tabs" role="tablist" aria-label="Filter by region or following">
+          <button class="filter-tab active" data-region="All" role="tab" aria-selected="true">🌍 All</button>
+          <button class="filter-tab" data-region="Following" role="tab">👥 Following</button>
+          <button class="filter-tab" data-region="Europe" role="tab">🏰 Europe</button>
+          <button class="filter-tab" data-region="Asia" role="tab">🌸 Asia</button>
+          <button class="filter-tab" data-region="Americas" role="tab">🗽 Americas</button>
+          <button class="filter-tab" data-region="Africa" role="tab">🦁 Africa</button>
+          <button class="filter-tab" data-region="Oceania" role="tab">🦘 Oceania</button>
+          <button class="filter-tab" data-region="Top Rated" role="tab">⭐ Top Rated</button>
+        </div>
+        <div class="search-bar">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="search" id="search-input" placeholder="Search destinations…" aria-label="Search destinations"
+            maxlength="80" />
+        </div>
+      </div>
+
+      <div class="posts-grid" id="posts-grid" role="list" aria-label="Travel posts" style="margin-top:2rem;"></div>
+
+    </div>
+  </section>
+
+  <div class="post-detail-overlay" id="detail-overlay" role="dialog" aria-modal="true" aria-label="Trip details">
+    <div class="post-detail-modal">
+      <button class="detail-close" id="detail-close-btn" aria-label="Close">✕</button>
+      <img id="detail-img" class="detail-hero-img" src="" alt="Trip destination" loading="lazy" />
+      <div class="detail-body">
+        <div class="detail-region-badge" id="detail-badge"></div>
+        <h2 class="detail-title" id="detail-title"></h2>
+        <div class="detail-meta" id="detail-meta"></div>
+        <p class="detail-story" id="detail-story"></p>
+        <div class="detail-tags" id="detail-tags"></div>
+        <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.08);">
+          <button id="detail-report-btn"
+            style="background:none;border:1px solid rgba(255,45,120,0.3);color:#E58F7F;font-size:0.8rem;font-weight:600;padding:0.45rem 1rem;border-radius:50px;cursor:pointer;font-family:'Outfit',sans-serif;">🚩
+            Report Inappropriate Content</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <img src="logo.png" alt="WanderShare Logo" class="logo-img" />
+            <span>WanderShare</span>
+          </div>
+          <p>A safe and friendly travel community where real explorers share real stories.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="inspire.html">Inspire Me</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="community.html">Share a Trip</a></li>
+            <li><a href="community.html#guidelines">Guidelines</a></li>
+            <li><a href="instructions.html">How to Use</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WanderShare · All rights reserved.<br>Created &amp; owned by
+          <strong>Hashen Fernando</strong> · Special thanks: <strong>Chanuki Marambage</strong><br>Funder &amp;
+          Investor: <strong>Ivan Tharindu</strong>
+        </p>
+        <div class="footer-socials" aria-label="Social links">
+          <a href="https://www.instagram.com/v_vish_fdo?igsh=MW1zOTF1NHJoMnFzaw%3D%3D&utm_source=qr"
+            aria-label="Instagram" title="Follow us on Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.07 1.646.07 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <span class="toast-icon" id="toast-icon">✅</span>
+    <span id="toast-text"></span>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="firebase-config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <script src="auth.js"></script>
+  <script src="firestore.js"></script>
+  <script src="groq-config.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="places.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

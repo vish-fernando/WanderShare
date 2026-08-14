@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community · WanderShare</title>
+  <meta name="description"
+    content="Share your travel story with the WanderShare community. Upload photos, write about your adventure, and inspire others to explore the world." />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <meta name="theme-color" content="#080C18" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <script src="theme.js"></script>
+</head>
+
+<body class="community-page">
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="WanderShare Logo" class="logo-img" />
+      <span>WanderShare</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" id="nav-home">Home</a></li>
+      <li><a href="inspire.html" id="nav-inspire">Inspire Me</a></li>
+      <li><a href="explore.html" id="nav-explore">Explore</a></li>
+      <li><a href="community.html" id="nav-community">Community</a></li>
+      <li><a href="profile.html" id="nav-profile">Profile</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme"
+        title="Switch theme">🌙</button>
+      <div class="nav-auth-area" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <div class="page-hero" role="banner">
+    <div class="page-hero-bg"
+      style="background-image: url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=1400&q=80');"
+      aria-hidden="true"></div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">👥 Community</div>
+      <h1 class="page-hero-title">Share Your <em>Adventure</em></h1>
+      <p class="page-hero-subtitle">Your story could inspire someone's next great journey.</p>
+    </div>
+  </div>
+
+  <section class="how-section" id="how" aria-label="How WanderShare works">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">📖 Simple</span>
+        <h2 class="section-title">How It <em>Works</em></h2>
+      </div>
+      <div class="steps-grid fade-in">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Sign In or Browse as Guest</h3>
+          <p>Create a free account in seconds or browse as a guest. Everyone is welcome on WanderShare.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Write Your Story</h3>
+          <p>Tell us where you went, what you saw, and what made it special. Upload a photo to bring it to life.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Inspire the World</h3>
+          <p>Your post goes live in the community feed instantly. Help someone else discover their next adventure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="share-page-section" id="share-page-section" aria-label="Share your trip form">
+    <div class="container">
+      <div class="share-page-inner">
+
+        <div class="share-page-form fade-in">
+          <h2>✈️ Share Your Trip</h2>
+          <p class="form-lead">Fill in the details below and hit Publish. Your story will appear in the community feed
+            immediately · and stay forever safe thanks to our content guidelines.</p>
+
+          <div
+            style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:0.85rem 1.1rem;display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:1.75rem;">
+            <span style="font-size:1.2rem;flex-shrink:0;">🛡️</span>
+            <div>
+              <div style="font-size:0.8rem;font-weight:700;color:#00E5FF;margin-bottom:0.25rem;">Community Guidelines
+              </div>
+              <div style="font-size:0.78rem;color:#99A3C8;line-height:1.5;">No offensive language, inappropriate images,
+                or harmful content. All posts are reviewed and can be reported.</div>
+            </div>
+          </div>
+
+          <form id="share-form" novalidate>
+            <div class="form-group">
+              <label class="form-label">📸 Trip Photos <span style="color:#00E5FF;font-weight:600;">(Up to 6 photos per
+                  post)</span></label>
+              <div class="photo-upload-zone" id="upload-zone">
+                <input type="file" id="photo-input" accept="image/jpeg,image/png,image/webp" multiple
+                  aria-label="Upload trip photos" />
+                <div class="upload-icon">🌄</div>
+                <p class="upload-text"><strong>Click to upload up to 6 photos</strong> or drag &amp; drop<br><span
+                    style="font-size:0.78rem;">JPG, PNG, WebP · Max 6 photos</span>
+                </p>
+                <div id="photos-preview-gallery" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;"></div>
+                <img class="upload-preview" id="photo-preview" alt="Preview" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="trip-title">📝 Trip Title *</label>
+              <input type="text" id="trip-title" class="form-input" placeholder="e.g. Sunsets in Santorini…" required
+                maxlength="100" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label" for="trip-destination">📍 Destination *</label>
+                <input type="text" id="trip-destination" class="form-input" placeholder="e.g. Santorini" required
+                  maxlength="80" />
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label" for="trip-country">🌐 Country *</label>
+                <select id="trip-country" class="form-select form-input" data-countries required></select>
+              </div>
+            </div>
+
+            <div class="form-row" style="margin-top:1.5rem;">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label" for="trip-region">🗺️ Region *</label>
+                <select id="trip-region" class="form-select form-input" required>
+                  <option value="">Select region…</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Americas">Americas</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Oceania">Oceania</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label" for="trip-author">👤 Your Name *</label>
+                <input type="text" id="trip-author" class="form-input" placeholder="e.g. Sofia M." required
+                  maxlength="60" />
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:1.5rem;">
+              <label class="form-label" for="trip-short">✍️ Short Description *</label>
+              <input type="text" id="trip-short" class="form-input" placeholder="One sentence that sums up your trip…"
+                required maxlength="160" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="trip-story">📖 Your Full Story</label>
+              <textarea id="trip-story" class="form-textarea"
+                placeholder="Tell the community what you saw, felt, ate, experienced…" rows="6"
+                maxlength="2000"></textarea>
+              <div style="font-size:0.75rem;color:#5A6590;margin-top:0.35rem;">Max 2,000 characters</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">🏷️ Tags</label>
+              <div class="tags-grid" role="group" aria-label="Select tags">
+                <button type="button" class="tag-toggle" data-tag="Beach">🏖️ Beach</button>
+                <button type="button" class="tag-toggle" data-tag="Mountains">🏔️ Mountains</button>
+                <button type="button" class="tag-toggle" data-tag="City">🏙️ City</button>
+                <button type="button" class="tag-toggle" data-tag="Adventure">🧗 Adventure</button>
+                <button type="button" class="tag-toggle" data-tag="Culture">🏛️ Culture</button>
+                <button type="button" class="tag-toggle" data-tag="Food">🍜 Food</button>
+                <button type="button" class="tag-toggle" data-tag="Nature">🌿 Nature</button>
+                <button type="button" class="tag-toggle" data-tag="Romantic">💕 Romantic</button>
+                <button type="button" class="tag-toggle" data-tag="Spiritual">🙏 Spiritual</button>
+                <button type="button" class="tag-toggle" data-tag="Off-the-beaten-path">🗺️ Hidden Gem</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">🔒 Post Visibility</label>
+              <div class="privacy-options" role="radiogroup" aria-label="Post privacy">
+                <label class="privacy-option"><input type="radio" name="post-privacy" value="public" checked /> 🌍
+                  Public · everyone can see</label>
+                <label class="privacy-option"><input type="radio" name="post-privacy" value="followers" /> 👥 Followers
+                  only</label>
+                <label class="privacy-option"><input type="radio" name="post-privacy" value="only-me" /> 🔒 Only
+                  me</label>
+              </div>
+            </div>
+
+            <div
+              style="background:rgba(255,85,85,0.06);border:1px solid rgba(255,85,85,0.15);border-radius:12px;padding:1rem 1.2rem;margin-top:0.5rem;">
+              <label style="display:flex;align-items:flex-start;gap:0.75rem;cursor:pointer;">
+                <input type="checkbox" id="agree-guidelines"
+                  style="margin-top:3px;accent-color:#00E5FF;width:16px;height:16px;flex-shrink:0;" />
+                <span style="font-size:0.82rem;color:#99A3C8;line-height:1.6;">
+                  I confirm this post contains <strong style="color:#E8EAFF;">no offensive language, inappropriate
+                    images, or harmful content</strong>, is written in <strong style="color:#E8EAFF;">correct
+                    English</strong>, and I agree to the Community Guidelines.
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn-submit"
+              style="width:100%;margin-top:1.5rem;padding:1rem;font-size:1rem;">🌍 Publish My Trip</button>
+          </form>
+        </div>
+
+        <div class="guidelines-card fade-in\" id=\"guidelines\" style=\"animation-delay:0.15s;\">
+          <h3>🛡️ Community Guidelines</h3>
+
+          <div class="guideline-item">
+            <span class="g-icon">✅</span>
+            <div class="g-text">
+              <h4>Family-Friendly Only</h4>
+              <p>All content must be suitable for all ages. No adult or explicit material.</p>
+            </div>
+          </div>
+          <div class="guideline-item">
+            <span class="g-icon">🗣️</span>
+            <div class="g-text">
+              <h4>Respectful Language</h4>
+              <p>No offensive words, hate speech, or discrimination of any kind.</p>
+            </div>
+          </div>
+          <div class="guideline-item">
+            <span class="g-icon">🇬🇧</span>
+            <div class="g-text">
+              <h4>English Only</h4>
+              <p>All posts, comments and stories must be written in correct English. Non-English posts are automatically
+                blocked.</p>
+            </div>
+          </div>
+          <div class="guideline-item">
+            <span class="g-icon">📸</span>
+            <div class="g-text">
+              <h4>Appropriate Photos</h4>
+              <p>Upload only travel photos of places, landscapes, food and culture.</p>
+            </div>
+          </div>
+          <div class="guideline-item">
+            <span class="g-icon">✈️</span>
+            <div class="g-text">
+              <h4>Travel Content Only</h4>
+              <p>Posts must be about real places you have visited. Keep it genuine!</p>
+            </div>
+          </div>
+          <div class="guideline-item">
+            <span class="g-icon">🤝</span>
+            <div class="g-text">
+              <h4>Be Kind</h4>
+              <p>Inspire, encourage and celebrate travel. Negativity is not welcome here.</p>
+            </div>
+          </div>
+
+          <div class="guidelines-divider"></div>
+          <div class="report-tip">
+            See a post that breaks these rules? Click the <strong>🚩 Report</strong> button on any post and we'll review
+            it right away.
+          </div>
+
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--glass-border);">
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.75rem;">Not ready to share yet?</p>
+            <a href="explore.html" class="btn-secondary"
+              style="font-size:0.85rem;padding:0.6rem 1.3rem;display:inline-flex;">🌍 Browse Stories →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="owner-panel-section" id="owner-panel" style="display:none;" aria-label="Owner featured locations">
+    <div class="container">
+      <div class="owner-panel-card fade-in">
+        <span class="section-eyebrow">⭐ Site Owner</span>
+        <h2 class="section-title" style="text-align:left;margin-bottom:0.5rem;">Add a <em>Featured Location</em></h2>
+        <p class="section-subtitle" style="text-align:left;margin-bottom:1.5rem;">Publish curated destinations that
+          appear across Explore, Inspire, and the world map.</p>
+        <form id="owner-location-form" class="owner-location-form" novalidate>
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="owner-title">Title *</label>
+              <input type="text" id="owner-title" class="form-input" placeholder="e.g. Hidden Beaches of Croatia"
+                required maxlength="100" />
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="owner-destination">Destination *</label>
+              <input type="text" id="owner-destination" class="form-input" placeholder="e.g. Dubrovnik" required
+                maxlength="80" />
+            </div>
+          </div>
+          <div class="form-row" style="margin-top:1rem;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="owner-country">Country *</label>
+              <select id="owner-country" class="form-select form-input" data-countries required></select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="owner-region">Region *</label>
+              <select id="owner-region" class="form-select form-input" required>
+                <option value="">Select region…</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia">Asia</option>
+                <option value="Americas">Americas</option>
+                <option value="Africa">Africa</option>
+                <option value="Oceania">Oceania</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:1rem;">
+            <label class="form-label" for="owner-short">Short Description *</label>
+            <input type="text" id="owner-short" class="form-input" placeholder="One sentence summary" required
+              maxlength="160" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="owner-story">Full Story</label>
+            <textarea id="owner-story" class="form-textarea" rows="4" maxlength="2000"
+              placeholder="Optional longer description"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0;flex:1;">
+              <label class="form-label" for="owner-image">Image URL</label>
+              <input type="url" id="owner-image" class="form-input" placeholder="https://images.unsplash.com/..." />
+            </div>
+            <div class="form-group" style="margin-bottom:0;flex:1;">
+              <label class="form-label" for="owner-tags">Tags (comma separated)</label>
+              <input type="text" id="owner-tags" class="form-input" placeholder="Beach, Culture, Food" />
+            </div>
+          </div>
+          <button type="submit" class="btn-submit" style="margin-top:1.25rem;">⭐ Publish Featured Location</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="post-detail-overlay" id="detail-overlay" role="dialog" aria-modal="true" aria-label="Trip details">
+    <div class="post-detail-modal">
+      <button class="detail-close" id="detail-close-btn" aria-label="Close">✕</button>
+      <img id="detail-img" class="detail-hero-img" src="" alt="Trip destination" loading="lazy" />
+      <div class="detail-body">
+        <div class="detail-region-badge" id="detail-badge"></div>
+        <h2 class="detail-title" id="detail-title"></h2>
+        <div class="detail-meta" id="detail-meta"></div>
+        <p class="detail-story" id="detail-story"></p>
+        <div class="detail-tags" id="detail-tags"></div>
+        <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.08);">
+          <button id="detail-report-btn"
+            style="background:none;border:1px solid rgba(255,85,85,0.25);color:#FF5555;font-size:0.8rem;font-weight:600;padding:0.45rem 1rem;border-radius:50px;cursor:pointer;font-family:'Outfit',sans-serif;">🚩
+            Report Inappropriate Content</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <img src="logo.png" alt="WanderShare Logo" class="logo-img" />
+            <span>WanderShare</span>
+          </div>
+          <p>A safe and friendly travel community where real explorers share real stories.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="inspire.html">Inspire Me</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="profile.html" class="footer-login-link">Login / Sign Up</a></li>
+            <li><a href="community.html#guidelines">Guidelines</a></li>
+            <li><a href="instructions.html">How to Use</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WanderShare · All rights reserved.<br>Created &amp; owned by
+          <strong>Hashen Fernando</strong> · Special thanks: <strong>Chanuki Marambage</strong><br>Funder &amp;
+          Investor: <strong>Ivan Tharindu</strong>
+        </p>
+        <div class="footer-socials" aria-label="Social links">
+          <a href="https://www.instagram.com/v_vish_fdo?igsh=MW1zOTF1NHJoMnFzaw%3D%3D&utm_source=qr"
+            aria-label="Instagram" title="Follow us on Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.07 1.646.07 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <span class="toast-icon" id="toast-icon">✅</span>
+    <span id="toast-text"></span>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <script src="auth.js"></script>
+  <script src="firestore.js"></script>
+  <script src="groq-config.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="places.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
